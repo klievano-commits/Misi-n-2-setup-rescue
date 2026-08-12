@@ -1,0 +1,3470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Setup Rescue | Teletrabajo en equilibrio</title>
+
+<style>
+
+:root{
+    --navy:#082a5d;
+    --navy-2:#123e72;
+    --teal:#009596;
+    --teal-dark:#007b7c;
+    --teal-soft:#e8f7f6;
+    --orange:#f39a16;
+    --red:#e74c45;
+    --green:#15906f;
+
+    --bg:#f3f7fa;
+    --white:#ffffff;
+    --text:#18334f;
+    --muted:#6a7e91;
+    --border:#dce6ee;
+
+    --shadow:0 12px 35px rgba(16,49,82,.08);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    min-height:100%;
+}
+
+body{
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(circle at 8% 10%,#ffffff 0 16%,transparent 38%),
+        linear-gradient(135deg,#f6f9fc,#edf4f5);
+
+    color:var(--text);
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+header{
+    height:82px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 28px;
+
+    background:rgba(255,255,255,.96);
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+    top:0;
+
+    z-index:500;
+
+    backdrop-filter:blur(15px);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.number{
+    width:54px;
+    height:54px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--navy);
+
+    border-radius:10px;
+
+    color:#fff;
+
+    font-size:22px;
+    font-weight:800;
+
+    box-shadow:
+        inset 0 -8px 18px rgba(0,0,0,.12);
+}
+
+.uni{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:var(--navy);
+
+    font-weight:750;
+    line-height:1.05;
+}
+
+.uni-shield{
+    width:34px;
+    height:43px;
+
+    border:3px solid var(--navy);
+
+    border-radius:5px 5px 14px 14px;
+
+    position:relative;
+}
+
+.uni-shield:before{
+    content:"";
+
+    position:absolute;
+
+    width:3px;
+    height:28px;
+
+    background:var(--navy);
+
+    left:8px;
+    top:4px;
+}
+
+.uni-shield:after{
+    content:"";
+
+    position:absolute;
+
+    width:12px;
+    height:3px;
+
+    background:var(--navy);
+
+    left:9px;
+    top:23px;
+
+    transform:rotate(35deg);
+}
+
+.header-title{
+    text-align:center;
+}
+
+.header-title h1{
+    margin:0;
+
+    font-size:23px;
+
+    color:var(--navy);
+}
+
+.header-title span{
+    display:block;
+
+    font-size:12px;
+
+    color:var(--muted);
+
+    margin-top:3px;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.score-pill{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    background:#fffaf0;
+
+    border:1px solid #f9dfad;
+
+    color:var(--navy);
+
+    padding:10px 15px;
+
+    border-radius:14px;
+
+    font-weight:750;
+}
+
+.score-pill .star{
+    color:var(--orange);
+
+    font-size:20px;
+}
+
+/* =========================================================
+PAGE
+========================================================= */
+
+main{
+    max-width:1540px;
+
+    margin:auto;
+
+    padding:22px;
+}
+
+.mission-card{
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    padding:17px 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:17px;
+}
+
+.mission-info{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.mission-symbol{
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    background:var(--teal-soft);
+
+    color:var(--teal);
+
+    font-size:26px;
+}
+
+.mission-info h2{
+    margin:0;
+
+    color:var(--navy);
+
+    font-size:21px;
+}
+
+.mission-info p{
+    margin:5px 0 0;
+
+    color:var(--muted);
+
+    font-size:13.5px;
+}
+
+.stats{
+    display:flex;
+    gap:10px;
+}
+
+.stat{
+    min-width:118px;
+
+    padding:9px 13px;
+
+    background:#f7f9fb;
+
+    border:1px solid var(--border);
+
+    border-radius:13px;
+}
+
+.stat small{
+    color:var(--muted);
+
+    display:block;
+
+    margin-bottom:4px;
+}
+
+.stat strong{
+    color:var(--navy);
+
+    font-size:17px;
+}
+
+/* =========================================================
+GAME GRID
+========================================================= */
+
+.game-grid{
+    display:grid;
+
+    grid-template-columns:minmax(0,1.55fr) 390px;
+
+    gap:18px;
+}
+
+.panel{
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+}
+
+/* =========================================================
+SCENE HEADER
+========================================================= */
+
+.scene-head{
+    min-height:67px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 18px;
+
+    border-bottom:1px solid #edf2f5;
+}
+
+.scene-head h3{
+    margin:0;
+
+    color:var(--navy);
+
+    font-size:16px;
+}
+
+.scene-help{
+    color:var(--muted);
+
+    font-size:12.5px;
+}
+
+/* =========================================================
+OFFICE / SVG
+========================================================= */
+
+.office-wrap{
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:16/10;
+
+    min-height:560px;
+
+    overflow:hidden;
+
+    background:#f4efe7;
+}
+
+.office-svg{
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    inset:0;
+}
+
+.hotspot{
+    position:absolute;
+
+    padding:0;
+
+    border:2px solid transparent;
+
+    border-radius:18px;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    z-index:40;
+
+    transition:
+        border .22s,
+        background .22s,
+        box-shadow .22s,
+        transform .22s;
+}
+
+.hotspot:hover{
+    border-color:rgba(0,149,150,.75);
+
+    background:rgba(0,149,150,.08);
+
+    box-shadow:
+        0 0 0 5px rgba(0,149,150,.08),
+        0 10px 25px rgba(8,42,93,.09);
+
+    transform:scale(1.015);
+}
+
+.hotspot.found{
+    border-color:rgba(243,154,22,.78);
+
+    background:rgba(243,154,22,.07);
+}
+
+.hotspot.found:after{
+    content:"!";
+
+    position:absolute;
+
+    right:-10px;
+    top:-10px;
+
+    width:27px;
+    height:27px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    color:#fff;
+
+    font-weight:900;
+
+    border:3px solid white;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.12);
+}
+
+.hotspot.fixed{
+    border-color:transparent;
+
+    background:transparent;
+
+    box-shadow:none;
+}
+
+.hotspot.fixed:after{
+    content:"✓";
+
+    position:absolute;
+
+    right:-10px;
+    top:-10px;
+
+    width:28px;
+    height:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:var(--teal);
+
+    border:3px solid #fff;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.12);
+
+    font-size:14px;
+    font-weight:900;
+}
+
+/* zonas */
+
+.hs-monitor{
+    left:45.5%;
+    top:26%;
+    width:18%;
+    height:25%;
+}
+
+.hs-chair{
+    left:34%;
+    top:40%;
+    width:17%;
+    height:41%;
+}
+
+.hs-keyboard{
+    left:46%;
+    top:51%;
+    width:17%;
+    height:11%;
+}
+
+.hs-mouse{
+    left:62.5%;
+    top:51%;
+    width:7%;
+    height:11%;
+}
+
+.hs-lamp{
+    left:69.5%;
+    top:25%;
+    width:12%;
+    height:34%;
+}
+
+.hs-cable{
+    left:53%;
+    top:67%;
+    width:25%;
+    height:21%;
+}
+
+.hs-box{
+    left:79%;
+    top:66%;
+    width:12%;
+    height:20%;
+}
+
+/* =========================================================
+SVG ANIMATION STATES
+========================================================= */
+
+#monitorGroup,
+#mouseGroup,
+#keyboardGroup,
+#lampGroup,
+#chairGroup,
+#cableGroup,
+#boxGroup{
+    transition:
+        transform .8s cubic-bezier(.22,.8,.26,1),
+        opacity .55s,
+        filter .55s;
+}
+
+.office-wrap.monitor-fixed #monitorGroup{
+    transform:translateY(-32px);
+}
+
+.office-wrap.mouse-fixed #mouseGroup{
+    transform:translate(-35px,0);
+}
+
+.office-wrap.keyboard-fixed #keyboardGroup{
+    transform:translate(18px,-5px);
+}
+
+.office-wrap.lamp-fixed #lampShadeGroup{
+    transform:
+        rotate(-20deg)
+        translate(-17px,10px);
+
+    transform-origin:730px 246px;
+}
+
+.office-wrap.chair-fixed #chairGroup{
+    transform:translate(20px,-6px);
+}
+
+.office-wrap.cable-fixed #cableDanger{
+    opacity:0;
+}
+
+.office-wrap.cable-fixed #cableSafe{
+    opacity:1;
+}
+
+#cableSafe{
+    opacity:0;
+}
+
+.office-wrap.box-fixed #boxGroup{
+    transform:translate(110px,-20px);
+
+    opacity:.38;
+}
+
+/* =========================================================
+RIGHT PANEL
+========================================================= */
+
+.control{
+    padding:19px;
+}
+
+.control h3{
+    margin:0;
+
+    color:var(--navy);
+
+    font-size:18px;
+}
+
+.intro{
+    margin:7px 0 16px;
+
+    font-size:13px;
+
+    color:var(--muted);
+
+    line-height:1.45;
+}
+
+.score-card{
+    padding:16px;
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(135deg,#f0faf8,#e7f6f5);
+
+    border:1px solid #cbe8e4;
+
+    margin-bottom:13px;
+}
+
+.score-top{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+}
+
+.score-title{
+    color:var(--muted);
+
+    font-size:12.5px;
+}
+
+.big-score{
+    display:block;
+
+    font-size:34px;
+
+    line-height:1;
+
+    margin-top:4px;
+
+    font-weight:850;
+
+    color:var(--teal);
+}
+
+.goal{
+    text-align:right;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+.goal strong{
+    color:var(--navy);
+
+    display:block;
+
+    font-size:16px;
+
+    margin-top:3px;
+}
+
+.progress-track{
+    width:100%;
+    height:10px;
+
+    margin-top:12px;
+
+    overflow:hidden;
+
+    border-radius:100px;
+
+    background:#d7e6e7;
+}
+
+.progress-value{
+    width:35%;
+    height:100%;
+
+    background:
+        linear-gradient(90deg,#008d8f,#21aaa2);
+
+    border-radius:inherit;
+
+    transition:width .6s ease;
+}
+
+.budget-card{
+    border:1px solid #f4dcae;
+
+    border-radius:14px;
+
+    padding:11px 14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:#fff9ed;
+
+    margin-bottom:13px;
+}
+
+.budget-card small{
+    display:block;
+
+    color:#81745e;
+}
+
+.budget-number{
+    font-size:22px;
+
+    color:var(--orange);
+
+    font-weight:850;
+
+    margin-top:2px;
+}
+
+.problem-box{
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    min-height:238px;
+
+    background:#fff;
+}
+
+.empty{
+    min-height:238px;
+
+    padding:30px 22px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    color:var(--muted);
+}
+
+.empty-icon{
+    width:56px;
+    height:56px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--teal-soft);
+
+    color:var(--teal);
+
+    font-size:28px;
+
+    margin-bottom:11px;
+}
+
+.empty strong{
+    color:var(--navy);
+
+    margin-bottom:6px;
+}
+
+.empty p{
+    margin:0;
+
+    font-size:12.5px;
+
+    line-height:1.45;
+}
+
+.problem-title{
+    display:flex;
+    gap:10px;
+    align-items:center;
+
+    padding:13px 14px;
+
+    background:#f7f9fb;
+
+    border-bottom:1px solid var(--border);
+
+    font-weight:750;
+
+    color:var(--navy);
+}
+
+.warning-icon{
+    width:27px;
+    height:27px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#fff4de;
+
+    color:var(--orange);
+
+    flex:none;
+}
+
+.problem-content{
+    padding:14px;
+}
+
+.problem-description{
+    margin:0 0 12px;
+
+    color:#5d7285;
+
+    font-size:12.7px;
+
+    line-height:1.48;
+}
+
+.action{
+    width:100%;
+
+    border:1px solid var(--border);
+
+    background:#fff;
+
+    padding:11px 11px;
+
+    border-radius:12px;
+
+    margin-top:8px;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    color:var(--text);
+
+    transition:.2s;
+}
+
+.action:hover{
+    border-color:var(--teal);
+
+    background:#f7fcfb;
+
+    transform:translateY(-1px);
+}
+
+.action-text{
+    font-size:12.5px;
+
+    line-height:1.35;
+}
+
+.action-price{
+    white-space:nowrap;
+
+    color:var(--teal);
+
+    font-weight:800;
+
+    font-size:11.5px;
+}
+
+.feedback{
+    display:none;
+
+    margin-top:12px;
+
+    padding:11px 12px;
+
+    border-radius:13px;
+
+    font-size:12.5px;
+
+    line-height:1.4;
+}
+
+.feedback.good{
+    display:block;
+
+    background:#eaf8f3;
+
+    color:#216b53;
+
+    border:1px solid #c4e4d7;
+}
+
+.feedback.wrong{
+    display:block;
+
+    background:#fff2ef;
+
+    color:#984b43;
+
+    border:1px solid #f0cdc8;
+}
+
+.finish{
+    width:100%;
+
+    margin-top:13px;
+
+    border:0;
+
+    padding:13px 18px;
+
+    border-radius:13px;
+
+    background:linear-gradient(90deg,#008e91,#009b98);
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 18px rgba(0,149,150,.18);
+
+    transition:.2s;
+}
+
+.finish:hover{
+    transform:translateY(-1px);
+}
+
+.finish:disabled{
+    opacity:.4;
+
+    cursor:not-allowed;
+
+    box-shadow:none;
+
+    transform:none;
+}
+
+/* =========================================================
+BOTTOM INFORMATION
+========================================================= */
+
+.tips{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+    margin-top:17px;
+}
+
+.tip{
+    padding:14px 16px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    box-shadow:0 7px 24px rgba(16,49,82,.04);
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:center;
+}
+
+.tip-icon{
+    width:39px;
+    height:39px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:var(--teal-soft);
+
+    color:var(--teal);
+
+    font-size:19px;
+
+    flex:none;
+}
+
+.tip strong{
+    color:var(--navy);
+
+    display:block;
+
+    font-size:12.5px;
+
+    margin-bottom:2px;
+}
+
+.tip span{
+    color:var(--muted);
+
+    font-size:11.7px;
+
+    line-height:1.35;
+}
+
+/* =========================================================
+MODAL
+========================================================= */
+
+.overlay{
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    z-index:1000;
+
+    background:rgba(4,28,55,.68);
+
+    backdrop-filter:blur(6px);
+
+    padding:20px;
+}
+
+.overlay.show{
+    display:flex;
+}
+
+.modal{
+    width:min(610px,96vw);
+
+    background:#fff;
+
+    border-radius:27px;
+
+    padding:31px;
+
+    text-align:center;
+
+    box-shadow:0 30px 100px rgba(0,0,0,.24);
+
+    animation:modalIn .4s ease;
+}
+
+@keyframes modalIn{
+    from{
+        opacity:0;
+        transform:translateY(15px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.modal-shield{
+    width:105px;
+    height:112px;
+
+    margin:0 auto 11px;
+
+    position:relative;
+
+    background:
+        linear-gradient(145deg,#0d5b78,#008f91);
+
+    clip-path:
+        polygon(
+        50% 0,
+        93% 16%,
+        89% 60%,
+        72% 82%,
+        50% 100%,
+        28% 82%,
+        11% 60%,
+        7% 16%
+        );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:49px;
+
+    filter:drop-shadow(0 10px 16px rgba(0,98,115,.2));
+}
+
+.modal h2{
+    margin:7px 0 4px;
+
+    color:var(--navy);
+
+    font-size:27px;
+}
+
+.modal-sub{
+    color:var(--muted);
+
+    margin:0;
+}
+
+.final-score{
+    color:var(--teal);
+
+    font-size:50px;
+
+    font-weight:900;
+
+    margin:12px 0;
+}
+
+.result-card{
+    padding:15px;
+
+    background:#f5f9fa;
+
+    border-radius:15px;
+
+    color:#526b7d;
+
+    text-align:left;
+
+    line-height:1.5;
+
+    font-size:13.5px;
+
+    margin-bottom:17px;
+}
+
+.modal-button{
+    padding:12px 25px;
+
+    border:0;
+
+    border-radius:13px;
+
+    background:var(--teal);
+
+    color:white;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media(max-width:1150px){
+
+    .game-grid{
+        grid-template-columns:1fr;
+    }
+
+    .office-wrap{
+        min-height:auto;
+    }
+
+    .control{
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+
+        gap:12px;
+    }
+
+    .control h3,
+    .control .intro,
+    .finish{
+        grid-column:1/-1;
+    }
+
+}
+
+@media(max-width:800px){
+
+    header{
+        padding:0 14px;
+    }
+
+    .header-title{
+        display:none;
+    }
+
+    main{
+        padding:13px;
+    }
+
+    .mission-card{
+        align-items:flex-start;
+    }
+
+    .stats{
+        display:none;
+    }
+
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+    .control{
+        display:block;
+    }
+
+    .budget-card,
+    .problem-box,
+    .finish{
+        margin-top:12px;
+    }
+
+    .office-wrap{
+        aspect-ratio:4/3;
+    }
+
+    .office-svg{
+        width:120%;
+        left:-10%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+
+        <div class="number">
+            02
+        </div>
+
+        <div class="uni">
+
+            <div class="uni-shield"></div>
+
+            <div>
+                Universidad<br>
+                de los Andes
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="header-title">
+
+        <h1>
+            Ruta de equilibrio
+        </h1>
+
+        <span>
+            Tu camino hacia una jornada segura y saludable en casa
+        </span>
+
+    </div>
+
+    <div class="header-actions">
+
+        <div class="score-pill">
+
+            <span class="star">
+                ★
+            </span>
+
+            <span id="points">
+                0
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="mission-card">
+
+    <div class="mission-info">
+
+        <div class="mission-symbol">
+            ⚙
+        </div>
+
+        <div>
+
+            <h2>
+                Misión 2: Setup Rescue
+            </h2>
+
+            <p>
+                Explora el estudio de Laura y realiza los ajustes que generen mayor impacto preventivo.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <small>
+                Hallazgos
+            </small>
+
+            <strong>
+                <span id="foundCount">
+                    0
+                </span>
+                /7
+            </strong>
+
+        </div>
+
+        <div class="stat">
+
+            <small>
+                Intervenciones
+            </small>
+
+            <strong id="fixedCount">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="game-grid">
+
+<!-- =====================================================
+ESCENARIO
+===================================================== -->
+
+<div class="panel">
+
+    <div class="scene-head">
+
+        <h3>
+            Estudio de Laura
+        </h3>
+
+        <div class="scene-help">
+            Explora visualmente el espacio y selecciona lo que ajustarías.
+        </div>
+
+    </div>
+
+
+    <div class="office-wrap" id="office">
+
+        <!-- =================================================
+        SVG PRINCIPAL
+        ================================================= -->
+
+        <svg
+            class="office-svg"
+            viewBox="0 0 1000 625"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Estudio de teletrabajo de Laura">
+
+            <defs>
+
+                <linearGradient
+                    id="wall"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#f9f5ed"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#f0ebe2"/>
+
+                </linearGradient>
+
+
+                <linearGradient
+                    id="floor"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#ddd0bd"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#c8b79f"/>
+
+                </linearGradient>
+
+
+                <linearGradient
+                    id="wood"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="1">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#d9a572"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#a96f42"/>
+
+                </linearGradient>
+
+
+                <linearGradient
+                    id="chairGradient"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="1">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#536d7a"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#293f4e"/>
+
+                </linearGradient>
+
+
+                <linearGradient
+                    id="screen"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="1">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#49697a"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#1c3444"/>
+
+                </linearGradient>
+
+
+                <filter
+                    id="softShadow"
+                    x="-30%"
+                    y="-30%"
+                    width="160%"
+                    height="160%">
+
+                    <feDropShadow
+                        dx="0"
+                        dy="10"
+                        stdDeviation="8"
+                        flood-opacity=".14"/>
+
+                </filter>
+
+
+                <filter
+                    id="smallShadow"
+                    x="-30%"
+                    y="-30%"
+                    width="160%"
+                    height="160%">
+
+                    <feDropShadow
+                        dx="0"
+                        dy="5"
+                        stdDeviation="4"
+                        flood-opacity=".12"/>
+
+                </filter>
+
+            </defs>
+
+
+            <!-- =========================
+            PARED
+            ========================== -->
+
+            <rect
+                width="1000"
+                height="420"
+                fill="url(#wall)"/>
+
+            <rect
+                y="420"
+                width="1000"
+                height="205"
+                fill="url(#floor)"/>
+
+
+            <!-- listón -->
+
+            <rect
+                y="408"
+                width="1000"
+                height="13"
+                fill="#d5c5b1"/>
+
+
+            <!-- =========================
+            VENTANA
+            ========================== -->
+
+            <g
+                transform="translate(60 58)"
+                filter="url(#smallShadow)">
+
+                <rect
+                    width="205"
+                    height="205"
+                    rx="6"
+                    fill="#ffffff"/>
+
+                <rect
+                    x="11"
+                    y="11"
+                    width="183"
+                    height="183"
+                    fill="#cce5eb"/>
+
+                <!-- cielo -->
+
+                <rect
+                    x="11"
+                    y="11"
+                    width="183"
+                    height="90"
+                    fill="#dff0f4"/>
+
+                <!-- paisaje -->
+
+                <path
+                    d="M11 142
+                       C50 102 84 132 110 103
+                       C137 74 162 105 194 81
+                       L194 194
+                       L11 194 Z"
+                    fill="#b9d2af"/>
+
+                <path
+                    d="M11 161
+                       C46 127 79 148 106 122
+                       C137 95 158 133 194 111
+                       L194 194
+                       L11 194 Z"
+                    fill="#91b68c"/>
+
+                <!-- divisiones -->
+
+                <rect
+                    x="98"
+                    y="11"
+                    width="8"
+                    height="183"
+                    fill="#fff"/>
+
+                <rect
+                    x="11"
+                    y="98"
+                    width="183"
+                    height="8"
+                    fill="#fff"/>
+
+                <!-- cortinas -->
+
+                <path
+                    d="M0 0
+                       C22 42 18 144 0 205
+                       L30 205
+                       C18 130 21 70 40 0 Z"
+                    fill="#eee4d5"/>
+
+                <path
+                    d="M205 0
+                       C183 42 187 144 205 205
+                       L175 205
+                       C188 130 184 70 165 0 Z"
+                    fill="#eee4d5"/>
+
+            </g>
+
+
+            <!-- =========================
+            CUADRO
+            ========================== -->
+
+            <g
+                transform="translate(310 70)"
+                filter="url(#smallShadow)">
+
+                <rect
+                    width="105"
+                    height="130"
+                    rx="3"
+                    fill="#b58963"/>
+
+                <rect
+                    x="8"
+                    y="8"
+                    width="89"
+                    height="114"
+                    fill="#f8f5ef"/>
+
+                <circle
+                    cx="53"
+                    cy="45"
+                    r="25"
+                    fill="#c8ded2"/>
+
+                <path
+                    d="M54 22
+                       C55 48 40 60 30 76
+                       C49 67 63 66 78 78
+                       C68 59 59 47 54 22 Z"
+                    fill="#448f75"/>
+
+                <path
+                    d="M54 25
+                       C49 44 51 63 54 87"
+                    stroke="#2c6f5b"
+                    stroke-width="4"
+                    fill="none"/>
+
+            </g>
+
+
+            <!-- =========================
+            REPISA
+            ========================== -->
+
+            <g transform="translate(675 87)">
+
+                <rect
+                    x="0"
+                    y="75"
+                    width="240"
+                    height="13"
+                    rx="4"
+                    fill="#b47e52"/>
+
+                <!-- libros -->
+
+                <rect
+                    x="30"
+                    y="30"
+                    width="16"
+                    height="45"
+                    rx="2"
+                    fill="#305678"/>
+
+                <rect
+                    x="49"
+                    y="35"
+                    width="13"
+                    height="40"
+                    rx="2"
+                    fill="#e4a557"/>
+
+                <rect
+                    x="65"
+                    y="27"
+                    width="18"
+                    height="48"
+                    rx="2"
+                    fill="#739b8a"/>
+
+                <!-- planta -->
+
+                <rect
+                    x="158"
+                    y="54"
+                    width="40"
+                    height="22"
+                    rx="3"
+                    fill="#be8058"/>
+
+                <path
+                    d="M178 55
+                       C160 33 162 18 178 7
+                       C183 27 186 38 178 55 Z"
+                    fill="#5b8d6c"/>
+
+                <path
+                    d="M178 55
+                       C191 34 204 28 212 32
+                       C203 45 194 52 178 55 Z"
+                    fill="#77a379"/>
+
+                <path
+                    d="M178 55
+                       C174 34 161 28 150 32
+                       C156 47 165 53 178 55 Z"
+                    fill="#71976c"/>
+
+            </g>
+
+
+            <!-- =========================
+            BIBLIOTECA
+            ========================== -->
+
+            <g
+                transform="translate(825 235)"
+                filter="url(#smallShadow)">
+
+                <rect
+                    width="120"
+                    height="230"
+                    rx="6"
+                    fill="#d4b58d"/>
+
+                <rect
+                    x="9"
+                    y="10"
+                    width="102"
+                    height="210"
+                    fill="#f2e6d4"/>
+
+                <rect
+                    x="9"
+                    y="74"
+                    width="102"
+                    height="7"
+                    fill="#c3996b"/>
+
+                <rect
+                    x="9"
+                    y="143"
+                    width="102"
+                    height="7"
+                    fill="#c3996b"/>
+
+                <!-- books upper -->
+
+                <rect
+                    x="19"
+                    y="31"
+                    width="13"
+                    height="42"
+                    fill="#2e5771"/>
+
+                <rect
+                    x="35"
+                    y="37"
+                    width="12"
+                    height="36"
+                    fill="#bd7b59"/>
+
+                <rect
+                    x="50"
+                    y="28"
+                    width="16"
+                    height="45"
+                    fill="#719681"/>
+
+                <!-- plant -->
+
+                <rect
+                    x="76"
+                    y="52"
+                    width="24"
+                    height="21"
+                    rx="3"
+                    fill="#bd8054"/>
+
+                <path
+                    d="M88 52
+                       C75 33 78 22 88 15
+                       C94 31 96 43 88 52 Z"
+                    fill="#4f866a"/>
+
+                <path
+                    d="M88 52
+                       C96 38 105 34 111 39
+                       C103 48 96 51 88 52 Z"
+                    fill="#73a078"/>
+
+                <!-- books middle -->
+
+                <rect
+                    x="22"
+                    y="98"
+                    width="15"
+                    height="44"
+                    fill="#c59955"/>
+
+                <rect
+                    x="40"
+                    y="107"
+                    width="15"
+                    height="35"
+                    fill="#527d86"/>
+
+                <rect
+                    x="58"
+                    y="94"
+                    width="17"
+                    height="48"
+                    fill="#994f45"/>
+
+                <!-- storage -->
+
+                <rect
+                    x="22"
+                    y="166"
+                    width="75"
+                    height="39"
+                    rx="4"
+                    fill="#b8936e"/>
+
+                <circle
+                    cx="60"
+                    cy="184"
+                    r="3"
+                    fill="#7a624e"/>
+
+            </g>
+
+
+            <!-- =========================
+            ALFOMBRA
+            ========================== -->
+
+            <ellipse
+                cx="520"
+                cy="530"
+                rx="320"
+                ry="80"
+                fill="#d9e1dd"/>
+
+            <ellipse
+                cx="520"
+                cy="530"
+                rx="270"
+                ry="62"
+                fill="#edf2ef"/>
+
+
+            <!-- =========================
+            PLANTA IZQUIERDA
+            ========================== -->
+
+            <g transform="translate(110 340)">
+
+                <ellipse
+                    cx="45"
+                    cy="145"
+                    rx="42"
+                    ry="14"
+                    fill="rgba(0,0,0,.08)"/>
+
+                <path
+                    d="M20 80
+                       L69 80
+                       L61 142
+                       L29 142 Z"
+                    fill="#be7c54"/>
+
+                <path
+                    d="M45 89
+                       C25 64 20 39 33 25
+                       C44 45 47 66 45 89 Z"
+                    fill="#528b68"/>
+
+                <path
+                    d="M45 88
+                       C57 60 76 45 88 53
+                       C76 70 64 82 45 88 Z"
+                    fill="#75a37b"/>
+
+                <path
+                    d="M45 88
+                       C25 77 11 62 14 48
+                       C29 54 39 70 45 88 Z"
+                    fill="#6e9b72"/>
+
+                <path
+                    d="M45 88
+                       C48 59 48 35 62 18
+                       C72 41 61 67 45 88 Z"
+                    fill="#3e7c5d"/>
+
+            </g>
+
+
+            <!-- =========================
+            ESCRITORIO
+            ========================== -->
+
+            <g
+                id="deskGroup"
+                filter="url(#softShadow)">
+
+                <path
+                    d="M295 340
+                       L765 340
+                       L804 369
+                       L270 369 Z"
+                    fill="url(#wood)"/>
+
+                <rect
+                    x="290"
+                    y="367"
+                    width="25"
+                    height="165"
+                    rx="4"
+                    fill="#925f39"/>
+
+                <rect
+                    x="744"
+                    y="367"
+                    width="25"
+                    height="165"
+                    rx="4"
+                    fill="#925f39"/>
+
+                <rect
+                    x="317"
+                    y="367"
+                    width="427"
+                    height="10"
+                    fill="#a46b41"/>
+
+            </g>
+
+
+            <!-- =========================
+            MONITOR
+            ========================== -->
+
+            <g
+                id="monitorGroup"
+                filter="url(#smallShadow)">
+
+                <rect
+                    x="475"
+                    y="237"
+                    width="175"
+                    height="105"
+                    rx="8"
+                    fill="#263d4c"/>
+
+                <rect
+                    x="483"
+                    y="245"
+                    width="159"
+                    height="89"
+                    rx="4"
+                    fill="url(#screen)"/>
+
+                <path
+                    d="M505 309
+                       C535 281 563 300 588 271
+                       C602 289 620 286 641 264
+                       L641 334
+                       L483 334
+                       L483 321 Z"
+                    fill="#628d91"
+                    opacity=".45"/>
+
+                <circle
+                    cx="500"
+                    cy="260"
+                    r="5"
+                    fill="#63c3bb"
+                    opacity=".7"/>
+
+                <rect
+                    x="559"
+                    y="342"
+                    width="10"
+                    height="37"
+                    rx="3"
+                    fill="#324a59"/>
+
+                <rect
+                    x="525"
+                    y="376"
+                    width="79"
+                    height="7"
+                    rx="4"
+                    fill="#324a59"/>
+
+            </g>
+
+
+            <!-- =========================
+            TECLADO
+            ========================== -->
+
+            <g
+                id="keyboardGroup"
+                filter="url(#smallShadow)">
+
+                <path
+                    d="M455 363
+                       L585 363
+                       L602 383
+                       L441 383 Z"
+                    fill="#dfe6e8"/>
+
+                <path
+                    d="M465 368
+                       L578 368"
+                    stroke="#b1bec4"
+                    stroke-width="2"
+                    stroke-dasharray="6 4"/>
+
+                <path
+                    d="M459 374
+                       L587 374"
+                    stroke="#b1bec4"
+                    stroke-width="2"
+                    stroke-dasharray="6 4"/>
+
+            </g>
+
+
+            <!-- =========================
+            MOUSE
+            ========================== -->
+
+            <g
+                id="mouseGroup"
+                filter="url(#smallShadow)">
+
+                <ellipse
+                    cx="659"
+                    cy="374"
+                    rx="18"
+                    ry="25"
+                    fill="#415b67"/>
+
+                <path
+                    d="M659 350
+                       L659 367"
+                    stroke="#8ca0a9"
+                    stroke-width="2"/>
+
+            </g>
+
+
+            <!-- =========================
+            LÁMPARA
+            ========================== -->
+
+            <g
+                id="lampGroup"
+                filter="url(#smallShadow)">
+
+                <ellipse
+                    cx="734"
+                    cy="363"
+                    rx="45"
+                    ry="9"
+                    fill="#415663"/>
+
+                <path
+                    d="M730 360
+                       L715 276"
+                    stroke="#3b515e"
+                    stroke-width="10"
+                    stroke-linecap="round"/>
+
+                <path
+                    d="M715 279
+                       L741 233"
+                    stroke="#3b515e"
+                    stroke-width="9"
+                    stroke-linecap="round"/>
+
+                <g id="lampShadeGroup">
+
+                    <path
+                        d="M715 240
+                           C729 212 769 211 786 234
+                           L770 257
+                           L724 257 Z"
+                        fill="#e9a034"/>
+
+                    <path
+                        d="M727 254
+                           L770 254"
+                        stroke="#ca7b14"
+                        stroke-width="5"
+                        stroke-linecap="round"/>
+
+                </g>
+
+            </g>
+
+
+            <!-- =========================
+            SILLA
+            ========================== -->
+
+            <g
+                id="chairGroup"
+                filter="url(#softShadow)">
+
+                <rect
+                    x="360"
+                    y="302"
+                    width="113"
+                    height="150"
+                    rx="38"
+                    fill="url(#chairGradient)"/>
+
+                <path
+                    d="M378 321
+                       C400 310 438 310 456 324
+                       L456 409
+                       C433 424 397 424 378 407 Z"
+                    fill="#405a68"/>
+
+                <path
+                    d="M373 406
+                       L469 406
+                       C480 406 485 422 475 431
+                       L367 431
+                       C357 421 362 406 373 406 Z"
+                    fill="#304956"/>
+
+                <rect
+                    x="417"
+                    y="431"
+                    width="9"
+                    height="74"
+                    fill="#304552"/>
+
+                <path
+                    d="M421 503
+                       L376 525"
+                    stroke="#304552"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+
+                <path
+                    d="M421 503
+                       L466 525"
+                    stroke="#304552"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+
+                <path
+                    d="M421 503
+                       L421 531"
+                    stroke="#304552"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+
+                <circle
+                    cx="374"
+                    cy="527"
+                    r="7"
+                    fill="#263c48"/>
+
+                <circle
+                    cx="468"
+                    cy="527"
+                    r="7"
+                    fill="#263c48"/>
+
+                <circle
+                    cx="421"
+                    cy="534"
+                    r="7"
+                    fill="#263c48"/>
+
+            </g>
+
+
+            <!-- =========================
+            ACCESORIOS SOBRE MESA
+            ========================== -->
+
+            <g>
+
+                <!-- taza -->
+
+                <ellipse
+                    cx="344"
+                    cy="351"
+                    rx="22"
+                    ry="10"
+                    fill="#0b7779"/>
+
+                <path
+                    d="M324 349
+                       L329 383
+                       C335 395 354 395 361 383
+                       L365 349 Z"
+                    fill="#008f91"/>
+
+                <path
+                    d="M361 356
+                       C382 353 382 379 361 377"
+                    fill="none"
+                    stroke="#008f91"
+                    stroke-width="7"/>
+
+
+                <!-- libreta -->
+
+                <path
+                    d="M373 352
+                       L433 358
+                       L428 393
+                       L368 385 Z"
+                    fill="#fff"
+                    stroke="#cfd8dc"
+                    stroke-width="2"/>
+
+                <path
+                    d="M383 363
+                       L419 367"
+                    stroke="#9bb1bb"
+                    stroke-width="2"/>
+
+                <path
+                    d="M382 371
+                       L416 374"
+                    stroke="#9bb1bb"
+                    stroke-width="2"/>
+
+            </g>
+
+
+            <!-- =========================
+            CABLE PELIGROSO
+            ========================== -->
+
+            <g id="cableGroup">
+
+                <path
+                    id="cableDanger"
+                    d="M610 405
+                       C655 430 645 470 694 476
+                       C743 482 728 523 780 537"
+                    fill="none"
+                    stroke="#343f45"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+
+                <path
+                    id="cableSafe"
+                    d="M610 405
+                       C650 410 694 405 738 412"
+                    fill="none"
+                    stroke="#343f45"
+                    stroke-width="7"
+                    stroke-linecap="round"/>
+
+                <rect
+                    x="775"
+                    y="526"
+                    width="26"
+                    height="18"
+                    rx="3"
+                    fill="#4b575c"/>
+
+            </g>
+
+
+            <!-- =========================
+            CAJA
+            ========================== -->
+
+            <g
+                id="boxGroup"
+                filter="url(#smallShadow)">
+
+                <path
+                    d="M814 455
+                       L901 455
+                       L914 476
+                       L827 476 Z"
+                    fill="#d3a678"/>
+
+                <rect
+                    x="827"
+                    y="476"
+                    width="87"
+                    height="72"
+                    fill="#bd8b60"/>
+
+                <path
+                    d="M870 476
+                       L870 548"
+                    stroke="#a97853"
+                    stroke-width="3"/>
+
+                <rect
+                    x="846"
+                    y="494"
+                    width="49"
+                    height="25"
+                    rx="2"
+                    fill="#dfbc92"/>
+
+            </g>
+
+
+            <!-- =========================
+            MINI PLANTA DERECHA
+            ========================== -->
+
+            <g transform="translate(780 280)">
+
+                <rect
+                    x="0"
+                    y="50"
+                    width="39"
+                    height="31"
+                    rx="4"
+                    fill="#b77853"/>
+
+                <path
+                    d="M20 53
+                       C7 36 10 18 21 8
+                       C28 27 29 42 20 53 Z"
+                    fill="#4e8668"/>
+
+                <path
+                    d="M20 53
+                       C33 36 44 35 50 41
+                       C42 50 33 53 20 53 Z"
+                    fill="#76a17a"/>
+
+                <path
+                    d="M20 53
+                       C11 43 0 39 -6 44
+                       C1 52 11 55 20 53 Z"
+                    fill="#699770"/>
+
+            </g>
+
+        </svg>
+
+
+        <!-- =============================================
+        HOTSPOTS INVISIBLES
+        ============================================== -->
+
+        <button
+            class="hotspot hs-monitor"
+            data-id="monitor"
+            aria-label="Monitor"
+            onclick="selectProblem('monitor',this)">
+        </button>
+
+        <button
+            class="hotspot hs-chair"
+            data-id="chair"
+            aria-label="Silla"
+            onclick="selectProblem('chair',this)">
+        </button>
+
+        <button
+            class="hotspot hs-keyboard"
+            data-id="keyboard"
+            aria-label="Teclado"
+            onclick="selectProblem('keyboard',this)">
+        </button>
+
+        <button
+            class="hotspot hs-mouse"
+            data-id="mouse"
+            aria-label="Mouse"
+            onclick="selectProblem('mouse',this)">
+        </button>
+
+        <button
+            class="hotspot hs-lamp"
+            data-id="lamp"
+            aria-label="Lámpara"
+            onclick="selectProblem('lamp',this)">
+        </button>
+
+        <button
+            class="hotspot hs-cable"
+            data-id="cable"
+            aria-label="Cable"
+            onclick="selectProblem('cable',this)">
+        </button>
+
+        <button
+            class="hotspot hs-box"
+            data-id="box"
+            aria-label="Caja"
+            onclick="selectProblem('box',this)">
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+CONTROL
+===================================================== -->
+
+<aside class="panel control">
+
+    <h3>
+        Panel de intervención
+    </h3>
+
+    <p class="intro">
+        Identifica una oportunidad de mejora y escoge la intervención más adecuada. Recuerda que una buena decisión no siempre requiere comprar algo nuevo.
+    </p>
+
+
+    <div class="score-card">
+
+        <div class="score-top">
+
+            <div>
+
+                <span class="score-title">
+                    Puntuación ergonómica
+                </span>
+
+                <strong class="big-score">
+                    <span id="score">
+                        35
+                    </span>%
+                </strong>
+
+            </div>
+
+            <div class="goal">
+
+                Meta
+
+                <strong>
+                    85%
+                </strong>
+
+            </div>
+
+        </div>
+
+        <div class="progress-track">
+
+            <div
+                class="progress-value"
+                id="progress">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="budget-card">
+
+        <div>
+
+            <small>
+                Presupuesto disponible
+            </small>
+
+            <div class="budget-number">
+                <span id="budget">
+                    8
+                </span>
+                créditos
+            </div>
+
+        </div>
+
+        <div style="font-size:27px">
+            ◎
+        </div>
+
+    </div>
+
+
+    <div
+        class="problem-box"
+        id="problemBox">
+
+        <div class="empty">
+
+            <div class="empty-icon">
+                ⌕
+            </div>
+
+            <strong>
+                Explora el estudio
+            </strong>
+
+            <p>
+                Haz clic sobre los objetos que consideres que pueden requerir un ajuste.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="feedback"
+        id="feedback">
+    </div>
+
+
+    <button
+        class="finish"
+        id="finishBtn"
+        onclick="finishGame()"
+        disabled>
+
+        Finalizar misión
+
+    </button>
+
+</aside>
+
+</section>
+
+
+<!-- =====================================================
+INFO
+===================================================== -->
+
+<section class="tips">
+
+    <div class="tip">
+
+        <div class="tip-icon">
+            ◎
+        </div>
+
+        <div>
+
+            <strong>
+                Prioriza
+            </strong>
+
+            <span>
+                Busca primero los cambios sencillos que eliminan riesgos importantes.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="tip">
+
+        <div class="tip-icon">
+            ⚙
+        </div>
+
+        <div>
+
+            <strong>
+                Ajusta antes de comprar
+            </strong>
+
+            <span>
+                Muchos elementos pueden mejorar solo reorganizando el puesto.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="tip">
+
+        <div class="tip-icon">
+            ✓
+        </div>
+
+        <div>
+
+            <strong>
+                Observa el cambio
+            </strong>
+
+            <span>
+                Cada intervención correcta modifica visualmente el estudio.
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+MODAL
+===================================================== -->
+
+<div
+    class="overlay"
+    id="overlay">
+
+    <div class="modal">
+
+        <div
+            class="modal-shield"
+            id="resultIcon">
+            ✓
+        </div>
+
+        <h2 id="resultTitle">
+            ¡Setup rescatado!
+        </h2>
+
+        <p class="modal-sub">
+            Tu puntuación ergonómica final fue
+        </p>
+
+        <div class="final-score">
+            <span id="finalScore">
+                0
+            </span>%
+        </div>
+
+        <div
+            class="result-card"
+            id="resultText">
+        </div>
+
+        <button
+            class="modal-button"
+            onclick="closeModal()">
+
+            Continuar
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+DATOS
+========================================================= */
+
+const problems = {
+
+monitor:{
+
+    title:"Altura de la pantalla",
+
+    description:
+    "Laura utiliza la pantalla en una posición baja. Mantener la mirada hacia abajo durante periodos prolongados puede aumentar la carga sobre cuello y espalda.",
+
+    actions:[
+
+        {
+            label:"Elevar la pantalla utilizando un soporte estable.",
+            cost:1,
+            impact:12,
+            correct:true,
+
+            feedback:
+            "Muy buena decisión. Elevar la pantalla permite mejorar la posición visual con una intervención sencilla y de bajo costo."
+        },
+
+        {
+            label:"Comprar inmediatamente un monitor nuevo.",
+            cost:5,
+            impact:6,
+            correct:false,
+
+            feedback:
+            "Un monitor nuevo podría ser útil en algunos casos, pero primero conviene probar ajustes sencillos con los recursos disponibles."
+        }
+
+    ]
+
+},
+
+
+chair:{
+
+    title:"Posición de la silla",
+
+    description:
+    "La silla está demasiado alejada del área principal de trabajo y dificulta mantener una posición cómoda frente al escritorio.",
+
+    actions:[
+
+        {
+            label:"Acercar la silla y revisar el apoyo y la posición frente al escritorio.",
+            cost:0,
+            impact:10,
+            correct:true,
+
+            feedback:
+            "Correcto. Antes de reemplazar una silla, es importante revisar cómo está ubicada y aprovechar sus posibilidades de ajuste."
+        },
+
+        {
+            label:"Comprar una silla completamente nueva.",
+            cost:6,
+            impact:7,
+            correct:false,
+
+            feedback:
+            "Una silla adecuada es importante, pero comprar una nueva no necesariamente debe ser la primera intervención."
+        }
+
+    ]
+
+},
+
+
+keyboard:{
+
+    title:"Ubicación del teclado",
+
+    description:
+    "El teclado está ubicado lejos de la zona cómoda de alcance, lo que puede favorecer una postura poco eficiente de brazos y hombros.",
+
+    actions:[
+
+        {
+            label:"Acercar el teclado y ubicarlo frente al usuario.",
+            cost:0,
+            impact:8,
+            correct:true,
+
+            feedback:
+            "Excelente. Reubicar los elementos utilizados constantemente suele ser una mejora sencilla y efectiva."
+        },
+
+        {
+            label:"Cambiarlo por un teclado más pequeño.",
+            cost:3,
+            impact:4,
+            correct:false,
+
+            feedback:
+            "Un teclado diferente no corrige necesariamente un problema que puede resolverse ajustando su ubicación."
+        }
+
+    ]
+
+},
+
+
+mouse:{
+
+    title:"Mouse demasiado alejado",
+
+    description:
+    "El mouse está separado del teclado y obliga a realizar movimientos repetidos de alcance.",
+
+    actions:[
+
+        {
+            label:"Acercar el mouse al teclado y mantenerlo dentro de una zona cómoda de alcance.",
+            cost:0,
+            impact:7,
+            correct:true,
+
+            feedback:
+            "Muy bien. Mantener el mouse cerca del teclado ayuda a reducir movimientos innecesarios."
+        },
+
+        {
+            label:"Cambiarlo por un mouse inalámbrico nuevo.",
+            cost:2,
+            impact:3,
+            correct:false,
+
+            feedback:
+            "La tecnología del mouse no resuelve por sí sola una ubicación inadecuada."
+        }
+
+    ]
+
+},
+
+
+lamp:{
+
+    title:"Orientación de la iluminación",
+
+    description:
+    "La lámpara está orientada directamente hacia la zona de visualización y puede contribuir a reflejos o iluminación poco equilibrada.",
+
+    actions:[
+
+        {
+            label:"Reorientar la lámpara y aprovechar mejor la iluminación natural.",
+            cost:0,
+            impact:8,
+            correct:true,
+
+            feedback:
+            "Correcto. Modificar la dirección de una fuente de luz puede mejorar el confort visual sin necesidad de reemplazarla."
+        },
+
+        {
+            label:"Comprar una lámpara de mayor potencia.",
+            cost:3,
+            impact:4,
+            correct:false,
+
+            feedback:
+            "Más potencia no siempre significa mejor iluminación. Primero conviene revisar la orientación y los reflejos."
+        }
+
+    ]
+
+},
+
+
+cable:{
+
+    title:"Cable en zona de circulación",
+
+    description:
+    "Un cable atraviesa una zona de paso cercana al escritorio y puede generar riesgo de tropiezo.",
+
+    actions:[
+
+        {
+            label:"Organizar y fijar el cable fuera de la zona de circulación.",
+            cost:1,
+            impact:14,
+            correct:true,
+
+            feedback:
+            "Excelente decisión. Eliminar una condición de tropiezo tiene un impacto preventivo inmediato."
+        },
+
+        {
+            label:"Dejarlo en el mismo lugar y caminar con más cuidado.",
+            cost:0,
+            impact:0,
+            correct:false,
+
+            feedback:
+            "Tener cuidado no elimina la condición insegura. Cuando sea posible, el riesgo debe retirarse."
+        }
+
+    ]
+
+},
+
+
+box:{
+
+    title:"Zona de circulación obstruida",
+
+    description:
+    "Una caja está ubicada junto al puesto, dentro de la zona habitual de circulación.",
+
+    actions:[
+
+        {
+            label:"Mover la caja a una zona de almacenamiento.",
+            cost:0,
+            impact:9,
+            correct:true,
+
+            feedback:
+            "Correcto. Mantener las zonas de circulación despejadas es una medida sencilla que reduce el riesgo de caídas."
+        },
+
+        {
+            label:"Colocar una señal para recordar que la caja está allí.",
+            cost:1,
+            impact:2,
+            correct:false,
+
+            feedback:
+            "Señalizar puede llamar la atención, pero no elimina el obstáculo. Lo más efectivo es retirarlo de la zona de paso."
+        }
+
+    ]
+
+}
+
+};
+
+
+/* =========================================================
+ESTADO
+========================================================= */
+
+const state = {
+
+    score:35,
+
+    budget:8,
+
+    points:0,
+
+    found:[],
+
+    fixed:[]
+
+};
+
+
+/* =========================================================
+SELECCIONAR
+========================================================= */
+
+function selectProblem(id,button){
+
+    if(state.fixed.includes(id)){
+
+        showFeedback(
+            "Este elemento ya fue intervenido correctamente.",
+            true
+        );
+
+        return;
+    }
+
+
+    document
+    .querySelectorAll(".hotspot")
+    .forEach(el=>{
+        el.classList.remove("active");
+    });
+
+
+    if(!state.found.includes(id)){
+
+        state.found.push(id);
+
+        state.points += 20;
+
+        button.classList.add("found");
+
+        updateUI();
+
+    }
+
+
+    renderProblem(id);
+
+}
+
+
+/* =========================================================
+RENDER
+========================================================= */
+
+function renderProblem(id){
+
+    const problem =
+        problems[id];
+
+
+    const actionsHTML =
+        problem.actions
+
+        .map((action,index)=>`
+
+            <button
+                class="action"
+                onclick="applyAction('${id}',${index})">
+
+                <span class="action-text">
+                    ${action.label}
+                </span>
+
+                <span class="action-price">
+
+                    ${
+                        action.cost === 0
+                        ? "Sin costo"
+                        : action.cost+" créditos"
+                    }
+
+                </span>
+
+            </button>
+
+        `)
+
+        .join("");
+
+
+    document
+    .getElementById("problemBox")
+    .innerHTML = `
+
+        <div class="problem-title">
+
+            <div class="warning-icon">
+                !
+            </div>
+
+            ${problem.title}
+
+        </div>
+
+        <div class="problem-content">
+
+            <p class="problem-description">
+                ${problem.description}
+            </p>
+
+            ${actionsHTML}
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+APLICAR
+========================================================= */
+
+function applyAction(id,index){
+
+    const action =
+        problems[id].actions[index];
+
+
+    if(action.cost > state.budget){
+
+        showFeedback(
+            "No tienes créditos suficientes para aplicar esta intervención.",
+            false
+        );
+
+        return;
+    }
+
+
+    if(!action.correct){
+
+        state.points =
+            Math.max(
+                0,
+                state.points - 10
+            );
+
+
+        updateUI();
+
+
+        showFeedback(
+            action.feedback,
+            false
+        );
+
+
+        return;
+    }
+
+
+    /* actualizar valores */
+
+    state.budget -=
+        action.cost;
+
+
+    state.score =
+        Math.min(
+            100,
+            state.score + action.impact
+        );
+
+
+    state.points +=
+        100 + action.impact * 2;
+
+
+    state.fixed.push(id);
+
+
+    /* modificación visual */
+
+    const office =
+        document.getElementById("office");
+
+
+    office.classList.add(
+        id+"-fixed"
+    );
+
+
+    /* hotspot */
+
+    const button =
+        document.querySelector(
+            `.hotspot[data-id="${id}"]`
+        );
+
+
+    button.classList.remove(
+        "found"
+    );
+
+
+    button.classList.add(
+        "fixed"
+    );
+
+
+    updateUI();
+
+
+    showFeedback(
+        "✓ "+action.feedback,
+        true
+    );
+
+
+    /* pequeño estado posterior */
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("problemBox")
+        .innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    ✓
+                </div>
+
+                <strong>
+                    Mejora aplicada
+                </strong>
+
+                <p>
+                    Observa cómo cambió el estudio y continúa explorando otras oportunidades de intervención.
+                </p>
+
+            </div>
+
+        `;
+
+    },1300);
+
+}
+
+
+/* =========================================================
+INTERFAZ
+========================================================= */
+
+function updateUI(){
+
+    document
+    .getElementById("score")
+    .textContent =
+        state.score;
+
+
+    document
+    .getElementById("budget")
+    .textContent =
+        state.budget;
+
+
+    document
+    .getElementById("points")
+    .textContent =
+        state.points;
+
+
+    document
+    .getElementById("foundCount")
+    .textContent =
+        state.found.length;
+
+
+    document
+    .getElementById("fixedCount")
+    .textContent =
+        state.fixed.length;
+
+
+    document
+    .getElementById("progress")
+    .style.width =
+        state.score+"%";
+
+
+    if(
+        state.fixed.length >= 4
+    ){
+
+        document
+        .getElementById("finishBtn")
+        .disabled = false;
+
+    }
+
+}
+
+
+/* =========================================================
+FEEDBACK
+========================================================= */
+
+function showFeedback(
+    text,
+    correct
+){
+
+    const box =
+        document.getElementById("feedback");
+
+
+    box.className =
+        correct
+        ? "feedback good"
+        : "feedback wrong";
+
+
+    box.innerHTML =
+        text;
+
+}
+
+
+/* =========================================================
+FINAL
+========================================================= */
+
+function finishGame(){
+
+    const final =
+        state.score;
+
+
+    let title;
+
+    let text;
+
+    let icon;
+
+
+    if(final >= 85){
+
+        title =
+            "¡Setup rescatado!";
+
+        icon =
+            "✓";
+
+        text = `
+            <strong>
+                Excelente intervención.
+            </strong>
+            <br><br>
+
+            Lograste priorizar cambios de alto impacto y utilizar los recursos disponibles de manera eficiente.
+
+            <br><br>
+
+            Un espacio saludable no depende únicamente de comprar nuevos elementos. También se construye reorganizando, ajustando y eliminando condiciones de riesgo.
+        `;
+
+    }
+
+
+    else if(final >= 70){
+
+        title =
+            "¡Vas por buen camino!";
+
+        icon =
+            "↗";
+
+        text = `
+            Aplicaste varias mejoras importantes, aunque el estudio todavía tiene oportunidades de ajuste.
+
+            <br><br>
+
+            Vuelve a observar el espacio y prioriza aquellas intervenciones que eliminan directamente una condición de riesgo.
+        `;
+
+    }
+
+
+    else{
+
+        title =
+            "Aún puedes mejorar el espacio";
+
+        icon =
+            "⌕";
+
+        text = `
+            Has realizado algunas intervenciones, pero todavía quedan condiciones relevantes por ajustar.
+
+            <br><br>
+
+            Busca primero los cambios sencillos, viables y de alto impacto preventivo.
+        `;
+
+    }
+
+
+    document
+    .getElementById("finalScore")
+    .textContent =
+        final;
+
+
+    document
+    .getElementById("resultTitle")
+    .textContent =
+        title;
+
+
+    document
+    .getElementById("resultIcon")
+    .textContent =
+        icon;
+
+
+    document
+    .getElementById("resultText")
+    .innerHTML =
+        text;
+
+
+    document
+    .getElementById("overlay")
+    .classList.add("show");
+
+
+    /* guardar progreso */
+
+    localStorage.setItem(
+
+        "setupRescue",
+
+        JSON.stringify({
+
+            score:
+            state.score,
+
+            points:
+            state.points,
+
+            budget:
+            state.budget,
+
+            found:
+            state.found,
+
+            fixed:
+            state.fixed
+
+        })
+
+    );
+
+}
+
+
+/* =========================================================
+CERRAR
+========================================================= */
+
+function closeModal(){
+
+    document
+    .getElementById("overlay")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+INICIO
+========================================================= */
+
+updateUI();
+
+</script>
+
+</body>
+</html>
