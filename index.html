@@ -79,7 +79,6 @@ header{
 .brand{
     display:flex;
     align-items:center;
-    gap:16px;
 }
 
 .number{
@@ -103,60 +102,11 @@ header{
         inset 0 -8px 18px rgba(0,0,0,.12);
 }
 
-.uni{
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    color:var(--navy);
-
-    font-weight:750;
-    line-height:1.05;
-}
-
-.uni-shield{
-    width:34px;
-    height:43px;
-
-    border:3px solid var(--navy);
-
-    border-radius:5px 5px 14px 14px;
-
-    position:relative;
-}
-
-.uni-shield:before{
-    content:"";
-
-    position:absolute;
-
-    width:3px;
-    height:28px;
-
-    background:var(--navy);
-
-    left:8px;
-    top:4px;
-}
-
-.uni-shield:after{
-    content:"";
-
-    position:absolute;
-
-    width:12px;
-    height:3px;
-
-    background:var(--navy);
-
-    left:9px;
-    top:23px;
-
-    transform:rotate(35deg);
-}
-
 .header-title{
     text-align:center;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
 }
 
 .header-title h1{
@@ -1222,7 +1172,6 @@ RESPONSIVE
     .finish{
         grid-column:1/-1;
     }
-
 }
 
 @media(max-width:800px){
@@ -1269,7 +1218,6 @@ RESPONSIVE
         width:120%;
         left:-10%;
     }
-
 }
 
 </style>
@@ -1283,17 +1231,6 @@ RESPONSIVE
 
         <div class="number">
             02
-        </div>
-
-        <div class="uni">
-
-            <div class="uni-shield"></div>
-
-            <div>
-                Universidad<br>
-                de los Andes
-            </div>
-
         </div>
 
     </div>
@@ -1389,10 +1326,6 @@ RESPONSIVE
 
 <section class="game-grid">
 
-<!-- =====================================================
-ESCENARIO
-===================================================== -->
-
 <div class="panel">
 
     <div class="scene-head">
@@ -1410,10 +1343,6 @@ ESCENARIO
 
     <div class="office-wrap" id="office">
 
-        <!-- =================================================
-        SVG PRINCIPAL
-        ================================================= -->
-
         <svg
             class="office-svg"
             viewBox="0 0 1000 625"
@@ -1422,186 +1351,60 @@ ESCENARIO
 
             <defs>
 
-                <linearGradient
-                    id="wall"
-                    x1="0"
-                    y1="0"
-                    x2="0"
-                    y2="1">
-
-                    <stop
-                        offset="0%"
-                        stop-color="#f9f5ed"/>
-
-                    <stop
-                        offset="100%"
-                        stop-color="#f0ebe2"/>
-
+                <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#f9f5ed"/>
+                    <stop offset="100%" stop-color="#f0ebe2"/>
                 </linearGradient>
 
-
-                <linearGradient
-                    id="floor"
-                    x1="0"
-                    y1="0"
-                    x2="0"
-                    y2="1">
-
-                    <stop
-                        offset="0%"
-                        stop-color="#ddd0bd"/>
-
-                    <stop
-                        offset="100%"
-                        stop-color="#c8b79f"/>
-
+                <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ddd0bd"/>
+                    <stop offset="100%" stop-color="#c8b79f"/>
                 </linearGradient>
 
-
-                <linearGradient
-                    id="wood"
-                    x1="0"
-                    y1="0"
-                    x2="1"
-                    y2="1">
-
-                    <stop
-                        offset="0%"
-                        stop-color="#d9a572"/>
-
-                    <stop
-                        offset="100%"
-                        stop-color="#a96f42"/>
-
+                <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#d9a572"/>
+                    <stop offset="100%" stop-color="#a96f42"/>
                 </linearGradient>
 
-
-                <linearGradient
-                    id="chairGradient"
-                    x1="0"
-                    y1="0"
-                    x2="1"
-                    y2="1">
-
-                    <stop
-                        offset="0%"
-                        stop-color="#536d7a"/>
-
-                    <stop
-                        offset="100%"
-                        stop-color="#293f4e"/>
-
+                <linearGradient id="chairGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#536d7a"/>
+                    <stop offset="100%" stop-color="#293f4e"/>
                 </linearGradient>
 
-
-                <linearGradient
-                    id="screen"
-                    x1="0"
-                    y1="0"
-                    x2="1"
-                    y2="1">
-
-                    <stop
-                        offset="0%"
-                        stop-color="#49697a"/>
-
-                    <stop
-                        offset="100%"
-                        stop-color="#1c3444"/>
-
+                <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#49697a"/>
+                    <stop offset="100%" stop-color="#1c3444"/>
                 </linearGradient>
 
-
-                <filter
-                    id="softShadow"
-                    x="-30%"
-                    y="-30%"
-                    width="160%"
-                    height="160%">
-
+                <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
                     <feDropShadow
                         dx="0"
                         dy="10"
                         stdDeviation="8"
                         flood-opacity=".14"/>
-
                 </filter>
 
-
-                <filter
-                    id="smallShadow"
-                    x="-30%"
-                    y="-30%"
-                    width="160%"
-                    height="160%">
-
+                <filter id="smallShadow" x="-30%" y="-30%" width="160%" height="160%">
                     <feDropShadow
                         dx="0"
                         dy="5"
                         stdDeviation="4"
                         flood-opacity=".12"/>
-
                 </filter>
 
             </defs>
 
+            <!-- PARED -->
+            <rect width="1000" height="420" fill="url(#wall)"/>
+            <rect y="420" width="1000" height="205" fill="url(#floor)"/>
+            <rect y="408" width="1000" height="13" fill="#d5c5b1"/>
 
-            <!-- =========================
-            PARED
-            ========================== -->
+            <!-- VENTANA -->
+            <g transform="translate(60 58)" filter="url(#smallShadow)">
 
-            <rect
-                width="1000"
-                height="420"
-                fill="url(#wall)"/>
-
-            <rect
-                y="420"
-                width="1000"
-                height="205"
-                fill="url(#floor)"/>
-
-
-            <!-- listón -->
-
-            <rect
-                y="408"
-                width="1000"
-                height="13"
-                fill="#d5c5b1"/>
-
-
-            <!-- =========================
-            VENTANA
-            ========================== -->
-
-            <g
-                transform="translate(60 58)"
-                filter="url(#smallShadow)">
-
-                <rect
-                    width="205"
-                    height="205"
-                    rx="6"
-                    fill="#ffffff"/>
-
-                <rect
-                    x="11"
-                    y="11"
-                    width="183"
-                    height="183"
-                    fill="#cce5eb"/>
-
-                <!-- cielo -->
-
-                <rect
-                    x="11"
-                    y="11"
-                    width="183"
-                    height="90"
-                    fill="#dff0f4"/>
-
-                <!-- paisaje -->
+                <rect width="205" height="205" rx="6" fill="#ffffff"/>
+                <rect x="11" y="11" width="183" height="183" fill="#cce5eb"/>
+                <rect x="11" y="11" width="183" height="90" fill="#dff0f4"/>
 
                 <path
                     d="M11 142
@@ -1619,23 +1422,8 @@ ESCENARIO
                        L11 194 Z"
                     fill="#91b68c"/>
 
-                <!-- divisiones -->
-
-                <rect
-                    x="98"
-                    y="11"
-                    width="8"
-                    height="183"
-                    fill="#fff"/>
-
-                <rect
-                    x="11"
-                    y="98"
-                    width="183"
-                    height="8"
-                    fill="#fff"/>
-
-                <!-- cortinas -->
+                <rect x="98" y="11" width="8" height="183" fill="#fff"/>
+                <rect x="11" y="98" width="183" height="8" fill="#fff"/>
 
                 <path
                     d="M0 0
@@ -1654,32 +1442,12 @@ ESCENARIO
             </g>
 
 
-            <!-- =========================
-            CUADRO
-            ========================== -->
+            <!-- CUADRO -->
+            <g transform="translate(310 70)" filter="url(#smallShadow)">
 
-            <g
-                transform="translate(310 70)"
-                filter="url(#smallShadow)">
-
-                <rect
-                    width="105"
-                    height="130"
-                    rx="3"
-                    fill="#b58963"/>
-
-                <rect
-                    x="8"
-                    y="8"
-                    width="89"
-                    height="114"
-                    fill="#f8f5ef"/>
-
-                <circle
-                    cx="53"
-                    cy="45"
-                    r="25"
-                    fill="#c8ded2"/>
+                <rect width="105" height="130" rx="3" fill="#b58963"/>
+                <rect x="8" y="8" width="89" height="114" fill="#f8f5ef"/>
+                <circle cx="53" cy="45" r="25" fill="#c8ded2"/>
 
                 <path
                     d="M54 22
@@ -1698,55 +1466,16 @@ ESCENARIO
             </g>
 
 
-            <!-- =========================
-            REPISA
-            ========================== -->
-
+            <!-- REPISA -->
             <g transform="translate(675 87)">
 
-                <rect
-                    x="0"
-                    y="75"
-                    width="240"
-                    height="13"
-                    rx="4"
-                    fill="#b47e52"/>
+                <rect x="0" y="75" width="240" height="13" rx="4" fill="#b47e52"/>
 
-                <!-- libros -->
+                <rect x="30" y="30" width="16" height="45" rx="2" fill="#305678"/>
+                <rect x="49" y="35" width="13" height="40" rx="2" fill="#e4a557"/>
+                <rect x="65" y="27" width="18" height="48" rx="2" fill="#739b8a"/>
 
-                <rect
-                    x="30"
-                    y="30"
-                    width="16"
-                    height="45"
-                    rx="2"
-                    fill="#305678"/>
-
-                <rect
-                    x="49"
-                    y="35"
-                    width="13"
-                    height="40"
-                    rx="2"
-                    fill="#e4a557"/>
-
-                <rect
-                    x="65"
-                    y="27"
-                    width="18"
-                    height="48"
-                    rx="2"
-                    fill="#739b8a"/>
-
-                <!-- planta -->
-
-                <rect
-                    x="158"
-                    y="54"
-                    width="40"
-                    height="22"
-                    rx="3"
-                    fill="#be8058"/>
+                <rect x="158" y="54" width="40" height="22" rx="3" fill="#be8058"/>
 
                 <path
                     d="M178 55
@@ -1769,73 +1498,20 @@ ESCENARIO
             </g>
 
 
-            <!-- =========================
-            BIBLIOTECA
-            ========================== -->
+            <!-- BIBLIOTECA -->
+            <g transform="translate(825 235)" filter="url(#smallShadow)">
 
-            <g
-                transform="translate(825 235)"
-                filter="url(#smallShadow)">
+                <rect width="120" height="230" rx="6" fill="#d4b58d"/>
+                <rect x="9" y="10" width="102" height="210" fill="#f2e6d4"/>
 
-                <rect
-                    width="120"
-                    height="230"
-                    rx="6"
-                    fill="#d4b58d"/>
+                <rect x="9" y="74" width="102" height="7" fill="#c3996b"/>
+                <rect x="9" y="143" width="102" height="7" fill="#c3996b"/>
 
-                <rect
-                    x="9"
-                    y="10"
-                    width="102"
-                    height="210"
-                    fill="#f2e6d4"/>
+                <rect x="19" y="31" width="13" height="42" fill="#2e5771"/>
+                <rect x="35" y="37" width="12" height="36" fill="#bd7b59"/>
+                <rect x="50" y="28" width="16" height="45" fill="#719681"/>
 
-                <rect
-                    x="9"
-                    y="74"
-                    width="102"
-                    height="7"
-                    fill="#c3996b"/>
-
-                <rect
-                    x="9"
-                    y="143"
-                    width="102"
-                    height="7"
-                    fill="#c3996b"/>
-
-                <!-- books upper -->
-
-                <rect
-                    x="19"
-                    y="31"
-                    width="13"
-                    height="42"
-                    fill="#2e5771"/>
-
-                <rect
-                    x="35"
-                    y="37"
-                    width="12"
-                    height="36"
-                    fill="#bd7b59"/>
-
-                <rect
-                    x="50"
-                    y="28"
-                    width="16"
-                    height="45"
-                    fill="#719681"/>
-
-                <!-- plant -->
-
-                <rect
-                    x="76"
-                    y="52"
-                    width="24"
-                    height="21"
-                    rx="3"
-                    fill="#bd8054"/>
+                <rect x="76" y="52" width="24" height="21" rx="3" fill="#bd8054"/>
 
                 <path
                     d="M88 52
@@ -1849,79 +1525,25 @@ ESCENARIO
                        C103 48 96 51 88 52 Z"
                     fill="#73a078"/>
 
-                <!-- books middle -->
+                <rect x="22" y="98" width="15" height="44" fill="#c59955"/>
+                <rect x="40" y="107" width="15" height="35" fill="#527d86"/>
+                <rect x="58" y="94" width="17" height="48" fill="#994f45"/>
 
-                <rect
-                    x="22"
-                    y="98"
-                    width="15"
-                    height="44"
-                    fill="#c59955"/>
-
-                <rect
-                    x="40"
-                    y="107"
-                    width="15"
-                    height="35"
-                    fill="#527d86"/>
-
-                <rect
-                    x="58"
-                    y="94"
-                    width="17"
-                    height="48"
-                    fill="#994f45"/>
-
-                <!-- storage -->
-
-                <rect
-                    x="22"
-                    y="166"
-                    width="75"
-                    height="39"
-                    rx="4"
-                    fill="#b8936e"/>
-
-                <circle
-                    cx="60"
-                    cy="184"
-                    r="3"
-                    fill="#7a624e"/>
+                <rect x="22" y="166" width="75" height="39" rx="4" fill="#b8936e"/>
+                <circle cx="60" cy="184" r="3" fill="#7a624e"/>
 
             </g>
 
 
-            <!-- =========================
-            ALFOMBRA
-            ========================== -->
-
-            <ellipse
-                cx="520"
-                cy="530"
-                rx="320"
-                ry="80"
-                fill="#d9e1dd"/>
-
-            <ellipse
-                cx="520"
-                cy="530"
-                rx="270"
-                ry="62"
-                fill="#edf2ef"/>
+            <!-- ALFOMBRA -->
+            <ellipse cx="520" cy="530" rx="320" ry="80" fill="#d9e1dd"/>
+            <ellipse cx="520" cy="530" rx="270" ry="62" fill="#edf2ef"/>
 
 
-            <!-- =========================
-            PLANTA IZQUIERDA
-            ========================== -->
-
+            <!-- PLANTA -->
             <g transform="translate(110 340)">
 
-                <ellipse
-                    cx="45"
-                    cy="145"
-                    rx="42"
-                    ry="14"
-                    fill="rgba(0,0,0,.08)"/>
+                <ellipse cx="45" cy="145" rx="42" ry="14" fill="rgba(0,0,0,.08)"/>
 
                 <path
                     d="M20 80
@@ -1957,13 +1579,8 @@ ESCENARIO
             </g>
 
 
-            <!-- =========================
-            ESCRITORIO
-            ========================== -->
-
-            <g
-                id="deskGroup"
-                filter="url(#softShadow)">
+            <!-- ESCRITORIO -->
+            <g id="deskGroup" filter="url(#softShadow)">
 
                 <path
                     d="M295 340
@@ -1972,55 +1589,18 @@ ESCENARIO
                        L270 369 Z"
                     fill="url(#wood)"/>
 
-                <rect
-                    x="290"
-                    y="367"
-                    width="25"
-                    height="165"
-                    rx="4"
-                    fill="#925f39"/>
-
-                <rect
-                    x="744"
-                    y="367"
-                    width="25"
-                    height="165"
-                    rx="4"
-                    fill="#925f39"/>
-
-                <rect
-                    x="317"
-                    y="367"
-                    width="427"
-                    height="10"
-                    fill="#a46b41"/>
+                <rect x="290" y="367" width="25" height="165" rx="4" fill="#925f39"/>
+                <rect x="744" y="367" width="25" height="165" rx="4" fill="#925f39"/>
+                <rect x="317" y="367" width="427" height="10" fill="#a46b41"/>
 
             </g>
 
 
-            <!-- =========================
-            MONITOR
-            ========================== -->
+            <!-- MONITOR -->
+            <g id="monitorGroup" filter="url(#smallShadow)">
 
-            <g
-                id="monitorGroup"
-                filter="url(#smallShadow)">
-
-                <rect
-                    x="475"
-                    y="237"
-                    width="175"
-                    height="105"
-                    rx="8"
-                    fill="#263d4c"/>
-
-                <rect
-                    x="483"
-                    y="245"
-                    width="159"
-                    height="89"
-                    rx="4"
-                    fill="url(#screen)"/>
+                <rect x="475" y="237" width="175" height="105" rx="8" fill="#263d4c"/>
+                <rect x="483" y="245" width="159" height="89" rx="4" fill="url(#screen)"/>
 
                 <path
                     d="M505 309
@@ -2032,39 +1612,16 @@ ESCENARIO
                     fill="#628d91"
                     opacity=".45"/>
 
-                <circle
-                    cx="500"
-                    cy="260"
-                    r="5"
-                    fill="#63c3bb"
-                    opacity=".7"/>
+                <circle cx="500" cy="260" r="5" fill="#63c3bb" opacity=".7"/>
 
-                <rect
-                    x="559"
-                    y="342"
-                    width="10"
-                    height="37"
-                    rx="3"
-                    fill="#324a59"/>
-
-                <rect
-                    x="525"
-                    y="376"
-                    width="79"
-                    height="7"
-                    rx="4"
-                    fill="#324a59"/>
+                <rect x="559" y="342" width="10" height="37" rx="3" fill="#324a59"/>
+                <rect x="525" y="376" width="79" height="7" rx="4" fill="#324a59"/>
 
             </g>
 
 
-            <!-- =========================
-            TECLADO
-            ========================== -->
-
-            <g
-                id="keyboardGroup"
-                filter="url(#smallShadow)">
+            <!-- TECLADO -->
+            <g id="keyboardGroup" filter="url(#smallShadow)">
 
                 <path
                     d="M455 363
@@ -2090,20 +1647,10 @@ ESCENARIO
             </g>
 
 
-            <!-- =========================
-            MOUSE
-            ========================== -->
+            <!-- MOUSE -->
+            <g id="mouseGroup" filter="url(#smallShadow)">
 
-            <g
-                id="mouseGroup"
-                filter="url(#smallShadow)">
-
-                <ellipse
-                    cx="659"
-                    cy="374"
-                    rx="18"
-                    ry="25"
-                    fill="#415b67"/>
+                <ellipse cx="659" cy="374" rx="18" ry="25" fill="#415b67"/>
 
                 <path
                     d="M659 350
@@ -2114,20 +1661,10 @@ ESCENARIO
             </g>
 
 
-            <!-- =========================
-            LÁMPARA
-            ========================== -->
+            <!-- LÁMPARA -->
+            <g id="lampGroup" filter="url(#smallShadow)">
 
-            <g
-                id="lampGroup"
-                filter="url(#smallShadow)">
-
-                <ellipse
-                    cx="734"
-                    cy="363"
-                    rx="45"
-                    ry="9"
-                    fill="#415663"/>
+                <ellipse cx="734" cy="363" rx="45" ry="9" fill="#415663"/>
 
                 <path
                     d="M730 360
@@ -2164,21 +1701,10 @@ ESCENARIO
             </g>
 
 
-            <!-- =========================
-            SILLA
-            ========================== -->
+            <!-- SILLA -->
+            <g id="chairGroup" filter="url(#softShadow)">
 
-            <g
-                id="chairGroup"
-                filter="url(#softShadow)">
-
-                <rect
-                    x="360"
-                    y="302"
-                    width="113"
-                    height="150"
-                    rx="38"
-                    fill="url(#chairGradient)"/>
+                <rect x="360" y="302" width="113" height="150" rx="38" fill="url(#chairGradient)"/>
 
                 <path
                     d="M378 321
@@ -2195,69 +1721,23 @@ ESCENARIO
                        C357 421 362 406 373 406 Z"
                     fill="#304956"/>
 
-                <rect
-                    x="417"
-                    y="431"
-                    width="9"
-                    height="74"
-                    fill="#304552"/>
+                <rect x="417" y="431" width="9" height="74" fill="#304552"/>
 
-                <path
-                    d="M421 503
-                       L376 525"
-                    stroke="#304552"
-                    stroke-width="8"
-                    stroke-linecap="round"/>
+                <path d="M421 503 L376 525" stroke="#304552" stroke-width="8" stroke-linecap="round"/>
+                <path d="M421 503 L466 525" stroke="#304552" stroke-width="8" stroke-linecap="round"/>
+                <path d="M421 503 L421 531" stroke="#304552" stroke-width="8" stroke-linecap="round"/>
 
-                <path
-                    d="M421 503
-                       L466 525"
-                    stroke="#304552"
-                    stroke-width="8"
-                    stroke-linecap="round"/>
-
-                <path
-                    d="M421 503
-                       L421 531"
-                    stroke="#304552"
-                    stroke-width="8"
-                    stroke-linecap="round"/>
-
-                <circle
-                    cx="374"
-                    cy="527"
-                    r="7"
-                    fill="#263c48"/>
-
-                <circle
-                    cx="468"
-                    cy="527"
-                    r="7"
-                    fill="#263c48"/>
-
-                <circle
-                    cx="421"
-                    cy="534"
-                    r="7"
-                    fill="#263c48"/>
+                <circle cx="374" cy="527" r="7" fill="#263c48"/>
+                <circle cx="468" cy="527" r="7" fill="#263c48"/>
+                <circle cx="421" cy="534" r="7" fill="#263c48"/>
 
             </g>
 
 
-            <!-- =========================
-            ACCESORIOS SOBRE MESA
-            ========================== -->
-
+            <!-- ACCESORIOS -->
             <g>
 
-                <!-- taza -->
-
-                <ellipse
-                    cx="344"
-                    cy="351"
-                    rx="22"
-                    ry="10"
-                    fill="#0b7779"/>
+                <ellipse cx="344" cy="351" rx="22" ry="10" fill="#0b7779"/>
 
                 <path
                     d="M324 349
@@ -2273,9 +1753,6 @@ ESCENARIO
                     stroke="#008f91"
                     stroke-width="7"/>
 
-
-                <!-- libreta -->
-
                 <path
                     d="M373 352
                        L433 358
@@ -2285,25 +1762,13 @@ ESCENARIO
                     stroke="#cfd8dc"
                     stroke-width="2"/>
 
-                <path
-                    d="M383 363
-                       L419 367"
-                    stroke="#9bb1bb"
-                    stroke-width="2"/>
-
-                <path
-                    d="M382 371
-                       L416 374"
-                    stroke="#9bb1bb"
-                    stroke-width="2"/>
+                <path d="M383 363 L419 367" stroke="#9bb1bb" stroke-width="2"/>
+                <path d="M382 371 L416 374" stroke="#9bb1bb" stroke-width="2"/>
 
             </g>
 
 
-            <!-- =========================
-            CABLE PELIGROSO
-            ========================== -->
-
+            <!-- CABLE -->
             <g id="cableGroup">
 
                 <path
@@ -2325,24 +1790,13 @@ ESCENARIO
                     stroke-width="7"
                     stroke-linecap="round"/>
 
-                <rect
-                    x="775"
-                    y="526"
-                    width="26"
-                    height="18"
-                    rx="3"
-                    fill="#4b575c"/>
+                <rect x="775" y="526" width="26" height="18" rx="3" fill="#4b575c"/>
 
             </g>
 
 
-            <!-- =========================
-            CAJA
-            ========================== -->
-
-            <g
-                id="boxGroup"
-                filter="url(#smallShadow)">
+            <!-- CAJA -->
+            <g id="boxGroup" filter="url(#smallShadow)">
 
                 <path
                     d="M814 455
@@ -2351,12 +1805,7 @@ ESCENARIO
                        L827 476 Z"
                     fill="#d3a678"/>
 
-                <rect
-                    x="827"
-                    y="476"
-                    width="87"
-                    height="72"
-                    fill="#bd8b60"/>
+                <rect x="827" y="476" width="87" height="72" fill="#bd8b60"/>
 
                 <path
                     d="M870 476
@@ -2364,30 +1813,15 @@ ESCENARIO
                     stroke="#a97853"
                     stroke-width="3"/>
 
-                <rect
-                    x="846"
-                    y="494"
-                    width="49"
-                    height="25"
-                    rx="2"
-                    fill="#dfbc92"/>
+                <rect x="846" y="494" width="49" height="25" rx="2" fill="#dfbc92"/>
 
             </g>
 
 
-            <!-- =========================
-            MINI PLANTA DERECHA
-            ========================== -->
-
+            <!-- PLANTA DERECHA -->
             <g transform="translate(780 280)">
 
-                <rect
-                    x="0"
-                    y="50"
-                    width="39"
-                    height="31"
-                    rx="4"
-                    fill="#b77853"/>
+                <rect x="0" y="50" width="39" height="31" rx="4" fill="#b77853"/>
 
                 <path
                     d="M20 53
@@ -2412,9 +1846,7 @@ ESCENARIO
         </svg>
 
 
-        <!-- =============================================
-        HOTSPOTS INVISIBLES
-        ============================================== -->
+        <!-- HOTSPOTS -->
 
         <button
             class="hotspot hs-monitor"
@@ -2470,9 +1902,7 @@ ESCENARIO
 </div>
 
 
-<!-- =====================================================
-CONTROL
-===================================================== -->
+<!-- PANEL DERECHO -->
 
 <aside class="panel control">
 
@@ -2595,10 +2025,6 @@ CONTROL
 </section>
 
 
-<!-- =====================================================
-INFO
-===================================================== -->
-
 <section class="tips">
 
     <div class="tip">
@@ -2668,9 +2094,7 @@ INFO
 </main>
 
 
-<!-- =====================================================
-MODAL
-===================================================== -->
+<!-- MODAL -->
 
 <div
     class="overlay"
@@ -2714,7 +2138,6 @@ MODAL
     </div>
 
 </div>
-
 
 
 <script>
@@ -2972,13 +2395,9 @@ ESTADO
 const state = {
 
     score:35,
-
     budget:8,
-
     points:0,
-
     found:[],
-
     fixed:[]
 
 };
@@ -3000,29 +2419,16 @@ function selectProblem(id,button){
         return;
     }
 
-
-    document
-    .querySelectorAll(".hotspot")
-    .forEach(el=>{
-        el.classList.remove("active");
-    });
-
-
     if(!state.found.includes(id)){
 
         state.found.push(id);
-
         state.points += 20;
-
         button.classList.add("found");
 
         updateUI();
-
     }
 
-
     renderProblem(id);
-
 }
 
 
@@ -3032,13 +2438,10 @@ RENDER
 
 function renderProblem(id){
 
-    const problem =
-        problems[id];
-
+    const problem = problems[id];
 
     const actionsHTML =
         problem.actions
-
         .map((action,index)=>`
 
             <button
@@ -3062,7 +2465,6 @@ function renderProblem(id){
             </button>
 
         `)
-
         .join("");
 
 
@@ -3091,7 +2493,6 @@ function renderProblem(id){
         </div>
 
     `;
-
 }
 
 
@@ -3101,9 +2502,7 @@ APLICAR
 
 function applyAction(id,index){
 
-    const action =
-        problems[id].actions[index];
-
+    const action = problems[id].actions[index];
 
     if(action.cost > state.budget){
 
@@ -3115,88 +2514,60 @@ function applyAction(id,index){
         return;
     }
 
-
     if(!action.correct){
 
-        state.points =
-            Math.max(
-                0,
-                state.points - 10
-            );
-
+        state.points = Math.max(
+            0,
+            state.points - 10
+        );
 
         updateUI();
-
 
         showFeedback(
             action.feedback,
             false
         );
 
-
         return;
     }
 
+    state.budget -= action.cost;
 
-    /* actualizar valores */
+    state.score = Math.min(
+        100,
+        state.score + action.impact
+    );
 
-    state.budget -=
-        action.cost;
-
-
-    state.score =
-        Math.min(
-            100,
-            state.score + action.impact
-        );
-
-
-    state.points +=
-        100 + action.impact * 2;
-
+    state.points += 100 + action.impact * 2;
 
     state.fixed.push(id);
-
-
-    /* modificación visual */
 
     const office =
         document.getElementById("office");
 
-
     office.classList.add(
         id+"-fixed"
     );
-
-
-    /* hotspot */
 
     const button =
         document.querySelector(
             `.hotspot[data-id="${id}"]`
         );
 
-
     button.classList.remove(
         "found"
     );
-
 
     button.classList.add(
         "fixed"
     );
 
-
     updateUI();
-
 
     showFeedback(
         "✓ "+action.feedback,
         true
     );
-
-
-    /* pequeño estado posterior */
 
     setTimeout(()=>{
 
@@ -3223,7 +2594,6 @@ function applyAction(id,index){
         `;
 
     },1300);
-
 }
 
 
@@ -3235,50 +2605,34 @@ function updateUI(){
 
     document
     .getElementById("score")
-    .textContent =
-        state.score;
-
+    .textContent = state.score;
 
     document
     .getElementById("budget")
-    .textContent =
-        state.budget;
-
+    .textContent = state.budget;
 
     document
     .getElementById("points")
-    .textContent =
-        state.points;
-
+    .textContent = state.points;
 
     document
     .getElementById("foundCount")
-    .textContent =
-        state.found.length;
-
+    .textContent = state.found.length;
 
     document
     .getElementById("fixedCount")
-    .textContent =
-        state.fixed.length;
-
+    .textContent = state.fixed.length;
 
     document
     .getElementById("progress")
-    .style.width =
-        state.score+"%";
+    .style.width = state.score+"%";
 
-
-    if(
-        state.fixed.length >= 4
-    ){
+    if(state.fixed.length >= 4){
 
         document
         .getElementById("finishBtn")
         .disabled = false;
-
     }
-
 }
 
 
@@ -3286,24 +2640,17 @@ function updateUI(){
 FEEDBACK
 ========================================================= */
 
-function showFeedback(
-    text,
-    correct
-){
+function showFeedback(text,correct){
 
     const box =
         document.getElementById("feedback");
-
 
     box.className =
         correct
         ? "feedback good"
         : "feedback wrong";
 
-
-    box.innerHTML =
-        text;
-
+    box.innerHTML = text;
 }
 
 
@@ -3313,16 +2660,11 @@ FINAL
 
 function finishGame(){
 
-    const final =
-        state.score;
-
+    const final = state.score;
 
     let title;
-
     let text;
-
     let icon;
-
 
     if(final >= 85){
 
@@ -3347,7 +2689,6 @@ function finishGame(){
 
     }
 
-
     else if(final >= 70){
 
         title =
@@ -3365,7 +2706,6 @@ function finishGame(){
         `;
 
     }
-
 
     else{
 
@@ -3385,63 +2725,36 @@ function finishGame(){
 
     }
 
-
     document
     .getElementById("finalScore")
-    .textContent =
-        final;
-
+    .textContent = final;
 
     document
     .getElementById("resultTitle")
-    .textContent =
-        title;
-
+    .textContent = title;
 
     document
     .getElementById("resultIcon")
-    .textContent =
-        icon;
-
+    .textContent = icon;
 
     document
     .getElementById("resultText")
-    .innerHTML =
-        text;
-
+    .innerHTML = text;
 
     document
     .getElementById("overlay")
     .classList.add("show");
 
-
-    /* guardar progreso */
-
     localStorage.setItem(
-
         "setupRescue",
-
         JSON.stringify({
-
-            score:
-            state.score,
-
-            points:
-            state.points,
-
-            budget:
-            state.budget,
-
-            found:
-            state.found,
-
-            fixed:
-            state.fixed
-
+            score:state.score,
+            points:state.points,
+            budget:state.budget,
+            found:state.found,
+            fixed:state.fixed
         })
-
     );
-
 }
 
 
@@ -3454,13 +2767,7 @@ function closeModal(){
     document
     .getElementById("overlay")
     .classList.remove("show");
-
 }
-
-
-/* =========================================================
-INICIO
-========================================================= */
 
 updateUI();
 
